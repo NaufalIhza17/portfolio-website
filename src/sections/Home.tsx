@@ -25,7 +25,7 @@ export default function HomeSection() {
       <div className="flex flex-col gap-5 md:gap-9 h-fit">
         <div className="flex flex-col gap-3">
           <p className="text-2xl lg:text-[32px] font-bold text-[#505050]">
-            Hello everyone, I’m
+            Hello everyone, I&apos;m
           </p>
           <p className="text-6xl xl:text-7xl font-extrabold text-black">
             Moch. <span className="text-[#0057FF]">Naufal Ihza</span> Syahzada

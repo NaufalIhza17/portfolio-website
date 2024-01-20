@@ -21,18 +21,19 @@ export default function Navigation({ onChange }: SelectProp) {
   }
   return (
     <section className="flex flex-row top-4 gap-5 md:gap-10 h-full justify-center md:justify-end items-start">
-      {sections.map((sect, idx) => (
+      {sections.map((section, idx) => (
         <button
           key={idx}
           onClick={() => changeSection(idx)}
           className="flex flex-col items-center group"
+          disabled
         >
           <p
             className={`text-[#505050] text-lg sm:text-xl font-bold ${
               isSection !== idx && `${isSectionText}`
             }`}
           >
-            {sect}
+            {section}
           </p>
           <div
             className={`border-2 border-[#FF7A00] w-10 ${
