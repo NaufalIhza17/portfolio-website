@@ -41,7 +41,7 @@ export default function HomeSection() {
             <div className="flex gap-3 items-center">
               <div className="bg-gradient-to-br from-transparent to-[#9b1212] rounded-full w-4 h-4 animate-pulse" />
               <div className="flex flex-col text-[#505050]">
-                <p className="font-bold ">Bachelor’s Student</p>
+                <p className="font-bold ">Bachelor&apos;s Student</p>
                 <p className="text-xs">
                   Sepuluh Nopember Institute of Technology
                 </p>
@@ -59,7 +59,7 @@ export default function HomeSection() {
             <span className="font-bold">various projects</span>, demonstrating
             my ability to create robust and user-friendly{" "}
             <span className="font-bold">web applications</span>. Additionally,
-            I've gained practical industry experience through an
+            I&apos;ve gained practical industry experience through an
             <span className="font-bold">internship</span>, refining my skills
             and gaining insights into real-world applications of computer
             science.
