@@ -21,7 +21,7 @@ export default function Home() {
         learning, a passion for problem-solving, and a commitment to delivering
         impactful digital experiences. I have actively applied my skills through
         various projects, demonstrating my ability to create robust and
-        user-friendly web applications. Additionally, I've gained practical
+        user-friendly web applications. Additionally, I&apos;ve gained practical
         industry experience through an internship and freelance, refining my
         skills and gaining insights into real-world applications of computer
         science.
