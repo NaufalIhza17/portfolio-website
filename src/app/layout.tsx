@@ -1,9 +1,11 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Manrope } from "next/font/google";
-import Navigation from "@/components/Navigation";
+import { Inter } from "next/font/google";
+import { Navigation } from "@/components";
+import { Helper } from "@/components";
+import { ThemeProvider } from "@/components/theme-provider";
 
-const manrope = Manrope({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Home | Portfolio Website",
@@ -18,11 +20,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`bg-[#E6E6E6] bg-grid grid grid-cols-12 h-fit ${manrope.className}`}
+        className={`bg-[#E6E6E6] dark:bg-gray-800 bg-grid dark:bg-grid-dk bg-fixed flex-col w-full items-center justify-center ${inter.className} relative`}
       >
-        <div className="col-start-2 col-end-12">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="max-w-[440px] w-full pt-[10%] sm:pt-[5%] pb-[20%] sm:pb-[10%] mx-auto">
+            <Navigation />
             {children}
-        </div>
+          </div>
+          <Helper />
+        </ThemeProvider>
+        <p className="text-center text-xs font-light text-black dark:text-white/70 py-10">Copyright 2024 Mochammad Naufal Ihza Syahzada</p>
       </body>
     </html>
   );

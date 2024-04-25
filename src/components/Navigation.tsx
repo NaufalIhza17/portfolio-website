@@ -1,47 +1,46 @@
+"use client";
+
 import * as React from "react";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
-interface SelectProp {
-  onChange?: (value: string) => void;
-}
-
-export default function Navigation({ onChange }: SelectProp) {
-  const sections = ["Home", "Portfolio", "Achievements"];
-  const [isSection, setSection] = useState(0);
+export default function Navigation() {
+  const sections = [
+    {
+      name: "home",
+      path: "/",
+    },
+    { name: "portfolio", path: "/portfolio" },
+    { name: "achievements", path: "/achievements" },
+    { name: "about", path: "/about" },
+  ];
   const isSectionText =
     "text-[#505050]/30 group-hover:text-[#505050]/50 transition-all";
-  const isSectionLine =
-    "border-[#FF7A00]/10 group-hover:border-[#FF7A00]/50 transition-all";
-
-  function changeSection(indexSection: number) {
-    setSection(indexSection);
-    if (onChange) {
-      onChange(sections[indexSection]);
-    }
-  }
+  const pathName = usePathname();
   return (
-    <section className="flex flex-row top-4 gap-5 md:gap-10 h-full justify-center md:justify-end items-start">
-      {sections.map((section, idx) => (
-        <button
-          key={idx}
-          onClick={() => changeSection(idx)}
-          className="flex flex-col items-center group"
-          disabled
-        >
-          <p
-            className={`text-[#505050] text-lg sm:text-xl font-bold ${
-              isSection !== idx && `${isSectionText}`
-            }`}
-          >
-            {section}
-          </p>
-          <div
-            className={`border-2 border-[#FF7A00] w-10 ${
-              isSection !== idx && `${isSectionLine}`
-            }`}
-          />
-        </button>
-      ))}
+    <section className="flex flex-col items-center gap-[18px]">
+      <p className="font-major-mono text-[32px]">
+        IH<span className="text-orange-main">Z</span>
+        <span className="text-purple-main">A</span>
+      </p>
+      <div className="flex flex-row top-4 gap-[14px]">
+        {sections.map((section, idx) => (
+          <button key={idx} className="flex flex-col items-end group" disabled>
+            <Link href={section.path}>
+              <p
+                className={`text-[#505050] dark:text-white font-extralight ${
+                  pathName !== section.path && `${isSectionText}`
+                }`}
+              >
+                {section.name}
+              </p>
+            </Link>
+            {pathName === section.path && (
+              <div className="border border-orange-main w-4" />
+            )}
+          </button>
+        ))}
+      </div>
     </section>
   );
 }
