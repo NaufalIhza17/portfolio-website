@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   DownloadIcon,
   GithubIcon,
@@ -15,18 +15,28 @@ import {
 import { useTheme } from "next-themes";
 
 export default function Helper() {
-  const { theme, setTheme } = useTheme();
+  const { systemTheme, theme, setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [isShow, setIsShow] = useState(false);
+  const [initialTheme, setInitialTheme] = useState("dark");
   const toggleOpen = () => {
     setIsOpen(!isOpen);
   };
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    setInitialTheme(newTheme);
   };
   const toggleShow = () => {
     setIsShow(!isShow);
   };
+  useEffect(() => {
+    setInitialTheme(systemTheme === "light" ? "light" : "dark");
+  }, [systemTheme]);
+
+  useEffect(() => {
+    setTheme(initialTheme);
+  }, []);
   return (
     <>
       <section
@@ -56,7 +66,7 @@ export default function Helper() {
             width={24}
             height={24}
             className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-opacity delay-500 ${
-              theme === "light" ? "opacity-0" : "opacity-100"
+              initialTheme !== "light" ? "opacity-0" : "opacity-100"
             }`}
           />
           <Image
@@ -65,7 +75,7 @@ export default function Helper() {
             width={24}
             height={24}
             className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-opacity delay-500 ${
-              theme === "dark" ? "opacity-0" : "opacity-100"
+              initialTheme !== "dark" ? "opacity-0" : "opacity-100"
             }`}
           />
         </div>
