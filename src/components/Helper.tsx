@@ -13,6 +13,8 @@ import {
 } from "~/icon";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { sendEmail } from "@/hooks";
+import { toast } from "sonner";
 
 export default function Helper() {
   const { theme, setTheme } = useTheme();
@@ -94,7 +96,7 @@ export default function Helper() {
         </div>
       </section>
       <section
-        className={`fixed z-30 bottom-0 border-t border-light-gray-main w-full h-[55%] sm:h-[50%] transition-all delay-100 ${
+        className={`fixed z-30 bottom-0 border-t border-light-gray-main w-full h-[65%] sm:h-[50%] transition-all delay-100 ${
           isOpen ? "" : "translate-y-full"
         }`}
       >
@@ -103,13 +105,29 @@ export default function Helper() {
             <p className="text-3xl font-light text-right">
               <span className="font-bold">Contact</span> Me
             </p>
-            <form action="" className="grid grid-cols-12 gap-2">
+            <form
+              onSubmit={async (event) => {
+                event.preventDefault();
+                const formData = new FormData(event.currentTarget);
+                const emailSent = await sendEmail(formData);
+
+                if (emailSent) {
+                  toast.success("Email sent successfully");
+                } else {
+                  toast.error("Failed to send email. Please try again later.");
+                }
+              }}
+              className="grid grid-cols-12 gap-2"
+            >
               <div className="col-span-12 sm:col-span-6 text-right">
                 <label htmlFor="" className="font-extralight italic">
                   Name<span className="text-orange-main">*</span>
                 </label>
                 <input
+                  required
                   type="text"
+                  name="senderName"
+                  maxLength={100}
                   className="bg-white dark:bg-gray-400 w-full py-1 px-2 font-extralight dark:text-white dark:placeholder:text-white placeholder:text-gray-main/50"
                   placeholder="Enter your name"
                 />
@@ -119,7 +137,10 @@ export default function Helper() {
                   Email<span className="text-orange-main">*</span>
                 </label>
                 <input
+                  required
                   type="email"
+                  name="senderEmail"
+                  maxLength={500}
                   className="bg-white dark:bg-gray-400 w-full py-1 px-2 font-extralight dark:text-white dark:placeholder:text-white placeholder:text-gray-main/50"
                   placeholder="Enter your email"
                 />
@@ -128,8 +149,10 @@ export default function Helper() {
                 <label htmlFor="" className="font-extralight italic">
                   Message<span className="text-orange-main">*</span>
                 </label>
-                <input
-                  type="text"
+                <textarea
+                  required
+                  name="message"
+                  maxLength={5000}
                   className="bg-white dark:bg-gray-400 w-full py-1 px-2 font-extralight dark:text-white dark:placeholder:text-white placeholder:text-gray-main/50"
                   placeholder="Enter your message"
                 />

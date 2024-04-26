@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Navigation } from "@/components";
 import { Helper } from "@/components";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Toaster position="top-center" />
       <body
         className={`bg-[#E6E6E6] dark:bg-gray-800 bg-grid dark:bg-grid-dk bg-fixed flex-col w-full items-center justify-center ${inter.className} relative`}
       >
@@ -34,7 +36,9 @@ export default function RootLayout({
           </div>
           <Helper />
         </ThemeProvider>
-        <p className="text-center text-xs font-light text-black dark:text-white/70 py-10">Copyright 2024 Mochammad Naufal Ihza Syahzada</p>
+        <p className="text-center text-xs font-light text-black dark:text-white/70 py-10">
+          Copyright 2024 Mochammad Naufal Ihza Syahzada
+        </p>
       </body>
     </html>
   );
