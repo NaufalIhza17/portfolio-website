@@ -1,7 +1,7 @@
 export default function Achievements() {
   return (
     <main className="flex flex-col items-center justify-center gap-5 pt-[15%] px-5">
-      <div>xxx</div>
+      <div>Page on progress</div>
     </main>
   );
 }
