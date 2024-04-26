@@ -1,11 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   DownloadIcon,
   GithubIcon,
-  GmailIcon,
   InstagramIcon,
   LinkedinIcon,
   DarkModeIcon,
@@ -13,9 +12,10 @@ import {
   HelpIcon,
 } from "~/icon";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
 export default function Helper() {
-  const { systemTheme, theme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [isShow, setIsShow] = useState(false);
   const [initialTheme, setInitialTheme] = useState("dark");
@@ -30,13 +30,7 @@ export default function Helper() {
   const toggleShow = () => {
     setIsShow(!isShow);
   };
-  useEffect(() => {
-    setInitialTheme(systemTheme === "light" ? "light" : "dark");
-  }, [systemTheme]);
 
-  useEffect(() => {
-    setTheme(initialTheme);
-  }, []);
   return (
     <>
       <section
@@ -100,7 +94,7 @@ export default function Helper() {
         </div>
       </section>
       <section
-        className={`fixed z-30 bottom-0 border-t border-light-gray-main w-full h-[60%] sm:h-[55%] transition-all delay-100 ${
+        className={`fixed z-30 bottom-0 border-t border-light-gray-main w-full h-[55%] sm:h-[50%] transition-all delay-100 ${
           isOpen ? "" : "translate-y-full"
         }`}
       >
@@ -148,44 +142,53 @@ export default function Helper() {
               </button>
             </form>
             <div className="w-full mt-[3%] flex flex-col items-start gap-1 max-sm:hidden">
-              <div className="flex gap-1 h-fit">
-                <Image
-                  src={GithubIcon}
-                  alt=""
-                  width={32}
-                  height={32}
-                  className="scale-75 hover:scale-100 transition-all delay-200"
-                />
-                <Image
-                  src={GmailIcon}
-                  alt=""
-                  width={32}
-                  height={32}
-                  className="scale-75 hover:scale-100 transition-all delay-200"
-                />
-                <Image
-                  src={InstagramIcon}
-                  alt=""
-                  width={32}
-                  height={32}
-                  className="scale-75 hover:scale-100 transition-all delay-200"
-                />
-              </div>
-              <div className="flex gap-1 h-fit">
-                <Image
-                  src={LinkedinIcon}
-                  alt=""
-                  width={32}
-                  height={32}
-                  className="scale-75 hover:scale-100 transition-all delay-200"
-                />
-                <Image
-                  src={DownloadIcon}
-                  alt=""
-                  width={32}
-                  height={32}
-                  className="scale-75 hover:scale-100 transition-all delay-200"
-                />
+              <div className="grid grid-cols-4 gap-1 h-fit">
+                <Link href={"https://github.com/NaufalIhza17"} passHref={true}>
+                  <Image
+                    src={GithubIcon}
+                    alt=""
+                    width={32}
+                    height={32}
+                    className="scale-75 hover:scale-100 transition-all delay-200"
+                  />
+                </Link>
+                <Link
+                  href={"https://www.instagram.com/ihzasyahzada/"}
+                  passHref={true}
+                >
+                  <Image
+                    src={InstagramIcon}
+                    alt=""
+                    width={32}
+                    height={32}
+                    className="scale-75 hover:scale-100 transition-all delay-200"
+                  />
+                </Link>
+                <Link
+                  href={"https://www.linkedin.com/in/ihzasyahzada/"}
+                  passHref={true}
+                >
+                  <Image
+                    src={LinkedinIcon}
+                    alt=""
+                    width={32}
+                    height={32}
+                    className="scale-75 hover:scale-100 transition-all delay-200"
+                  />
+                </Link>
+                <Link
+                  href={"/download/Resume_MochammadNaufalIhzaSyahzada.pdf"}
+                  passHref={true}
+                  download={true}
+                >
+                  <Image
+                    src={DownloadIcon}
+                    alt=""
+                    width={32}
+                    height={32}
+                    className="scale-75 hover:scale-100 transition-all delay-200"
+                  />
+                </Link>
               </div>
             </div>
           </div>

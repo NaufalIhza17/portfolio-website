@@ -3,6 +3,7 @@
 import * as React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Navigation() {
   const sections = [
@@ -24,22 +25,32 @@ export default function Navigation() {
         <span className="text-purple-main">A</span>
       </p>
       <div className="flex flex-row top-4 gap-[14px]">
-        {sections.map((section, idx) => (
-          <button key={idx} className="flex flex-col items-end group" disabled>
-            <Link href={section.path}>
-              <p
-                className={`text-[#505050] dark:text-white font-extralight ${
-                  pathName !== section.path && `${isSectionText}`
-                }`}
-              >
-                {section.name}
-              </p>
-            </Link>
-            {pathName === section.path && (
-              <div className="border border-orange-main w-4" />
-            )}
-          </button>
-        ))}
+        <AnimatePresence>
+          {sections.map((section, idx) => (
+            <motion.button
+              key={idx}
+              className="flex flex-col items-end group relative"
+              disabled
+            >
+              <Link href={section.path}>
+                <motion.p
+                  className={`text-[#505050] dark:text-white font-extralight ${
+                    pathName !== section.path && `${isSectionText}`
+                  }`}
+                >
+                  {section.name}
+                </motion.p>
+              </Link>
+              {pathName === section.path ? (
+                <motion.div
+                  transition={{ type: "spring" }}
+                  layoutId="underline"
+                  className="absolute bottom-0 border border-orange-main w-4"
+                ></motion.div>
+              ) : null}
+            </motion.button>
+          ))}
+        </AnimatePresence>
       </div>
     </section>
   );
