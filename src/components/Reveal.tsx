@@ -7,12 +7,14 @@ interface RevealProps {
   children: JSX.Element;
   width?: "fit-content" | "100%";
   isInView: boolean;
+  className?: string;
 }
 
 export default function Reveal({
   children,
   width = "fit-content",
   isInView,
+  className = "",
 }: RevealProps) {
   const mainControls = useAnimation();
   const slideControls = useAnimation();
@@ -24,7 +26,10 @@ export default function Reveal({
     }
   }, [isInView, mainControls]);
   return (
-    <div style={{ position: "relative", width, overflow: "hidden" }}>
+    <div
+      style={{ position: "relative", width, overflow: "hidden" }}
+      className={className}
+    >
       <motion.div
         variants={{
           hidden: { opacity: 0, y: 75 },

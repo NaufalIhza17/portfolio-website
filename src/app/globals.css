@@ -7,6 +7,42 @@
     font-family: "Major Mono Display";
     font-weight: 400;
     font-display: swap;
-    src: url("/fonts/Major_Mono_Display/MajorMonoDisplay-Regular.ttf") format("truetype");
+    src: url("/fonts/Major_Mono_Display/MajorMonoDisplay-Regular.ttf")
+      format("truetype");
   }
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.mask {
+  mask-image: url("../../public/img/mask.svg");
+  background: #5200ff;
+  mask-repeat: no-repeat;
+  mask-size: 25px;
+  color: #ff7a00;
+}
+
+.card {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.container-base {
+  max-width: 400px;
+}
+
+.container-lg {
+  max-width: 800px;
 }

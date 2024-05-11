@@ -1,8 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Navigation } from "@/components";
-import { Helper } from "@/components";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "sonner";
 
@@ -30,15 +28,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="max-w-[440px] w-full pt-[10%] sm:pt-[5%] pb-[20%] sm:pb-[10%] mx-auto">
-            <Navigation />
-            {children}
-          </div>
-          <Helper />
+          {children}
         </ThemeProvider>
-        <p className="text-center text-xs font-light text-black dark:text-white/70 py-10">
-          Copyright 2024 Mochammad Naufal Ihza Syahzada
-        </p>
       </body>
     </html>
   );

@@ -17,6 +17,7 @@ const config: Config = {
       },
       screens: {
         xs: "425px",
+        "3xl": "2000px",
       },
       fontFamily: {
         "major-mono": ["Major Mono Display", ...fontFamily.sans],

@@ -11,13 +11,14 @@ export default function Navigation() {
       name: "home",
       path: "/",
     },
-    { name: "portfolio", path: "/portfolio" },
+    { name: "projects", path: "/projects" },
     { name: "achievements", path: "/achievements" },
     { name: "about", path: "/about" },
   ];
   const isSectionText =
     "text-[#505050]/30 group-hover:text-[#505050]/50 transition-all";
   const pathName = usePathname();
+
   return (
     <section className="flex flex-col items-center gap-[18px]">
       <p className="font-major-mono text-[32px]">

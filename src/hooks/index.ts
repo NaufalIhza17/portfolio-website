@@ -1,4 +1,5 @@
 import sendEmail from "./sendEmail";
 import validateString from "./validateString";
+import useWindowWidth from "./useWindowWidth";
 
-export { sendEmail, validateString };
+export { sendEmail, validateString, useWindowWidth };
