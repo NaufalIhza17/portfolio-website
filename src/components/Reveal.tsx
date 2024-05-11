@@ -24,7 +24,7 @@ export default function Reveal({
       mainControls.start("visible");
       slideControls.start("visible");
     }
-  }, [isInView, mainControls]);
+  }, [isInView, mainControls, slideControls]);
   return (
     <div
       style={{ position: "relative", width, overflow: "hidden" }}

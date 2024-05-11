@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Analytics />
       <Toaster position="top-center" />
       <body
         className={`bg-[#E6E6E6] dark:bg-gray-800 bg-grid dark:bg-grid-dk bg-fixed flex-col w-full items-center justify-center ${inter.className} relative`}
