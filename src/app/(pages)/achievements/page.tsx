@@ -97,4 +97,47 @@ const achievementsData = [
     title:
       "Staff of Seminar Tech Event Division - Schematics National Seminar of Technology 2022",
   },
+  //NEW
+  {
+    title: "Web3 Hackathon",
+    description:
+      "Participate in Web3 Hackathon that held by Codefest. Although me and my friends didn't won, we discovered new experience especially in block-chain area.",
+    imgPath: "cert-three.png",
+  },
+  {
+    title: "Scholarship Seminar",
+    imgPath: "cert-six.png",
+  },
+  {
+    title: "Guest Lecture from Tomsk University, Rusia",
+    description:
+      "Two speakers from Tomsk University shares about what they experienced and teach in their university.",
+    imgPath: "cert-fifteen.png",
+  },
+  {
+    title: "Python Bootcamp",
+    description:
+      "In three days I learned Python from basics. Eventhough I didn't get the skills that I want like learning seaborn and other data tools, I notice that knowing the basic things its necessary.",
+    imgPath: "cert-seven.png",
+  },
+  {
+    title: "Learning Web Development through PHP",
+    description:
+      "Udemy offers an online class for learning PHP. I took it because this is one of the first step to know backend. Because I believe in nowadays some of backend frameworks still based on PHP.",
+    imgPath: "cert-eight.png",
+  },
+  {
+    title: "Money Management Seminar",
+    description:
+      "This seminar may not allign with what I learned in computer science, but I believe having self-aware about money is a must especially student like me.",
+    imgPath: "cert-twelve.png",
+  },
+  {
+    title: "Staff of Event Division",
+    imgPath: "cert-ten.png",
+  },
+  {
+    title: "Staff of Web Development in Corrosion Guest Lecture",
+    imgPath: "cert-eleven.png"
+  }
 ];

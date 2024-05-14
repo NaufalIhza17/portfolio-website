@@ -5,7 +5,7 @@ import { Profile } from "~/img";
 import Image from "next/image";
 import { Reveal, Connect, LayoutCustom } from "@/components";
 import { useState, useEffect, useRef } from "react";
-import { useInView } from "framer-motion";
+import { useInView, motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
   const ref = useRef(null);
@@ -27,6 +27,33 @@ export default function Home() {
     setIsInViewConnect(inViewConnect);
   }, [inViewConnect]);
 
+  const items = [
+    {
+      id: 1,
+      content: "Open To Work",
+    },
+    {
+      id: 2,
+      content: "Front End Enthusiast",
+    },
+    {
+      id: 3,
+      content: "Software Developer Enthusiast",
+    },
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((state) => {
+        if (state >= items.length - 1) return 0;
+        return state + 1;
+      });
+    }, 4000);
+    return () => clearInterval(id);
+  }, [items.length]);
+
   return (
     <LayoutCustom>
       <section
@@ -35,7 +62,24 @@ export default function Home() {
       >
         <Image src={Profile} alt="" width={160} height={160} />
         <Reveal isInView={isInViewName}>
-          <p className="font-bold text-xl tracking-[0.2em]">Naufal Ihza</p>
+          <div className="flex flex-col gap-2 items-center w-[300px]">
+            <p className="font-bold text-xl">NAUFAL IHZA</p>
+            <AnimatePresence>
+              <div className="relative overflow-visible h-5 flex justify-center">
+                <motion.p
+                  key={items[index].id}
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -20, opacity: 0 }}
+                  transition={{ ease: "easeInOut" }}
+                  style={{ position: "absolute" }}
+                  className="min-w-max text-orange-main"
+                >
+                  {items[index].content}
+                </motion.p>
+              </div>
+            </AnimatePresence>
+          </div>
         </Reveal>
         <Reveal isInView={isInViewDescription} className="container-base">
           <p className="text-gray-main dark:text-gray-300 text-center font-light leading-tight">
