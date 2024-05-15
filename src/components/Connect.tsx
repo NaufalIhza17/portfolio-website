@@ -34,7 +34,7 @@ export default function Connect() {
           <Image src={LinkedinIcon} alt="" width={24} height={24} />
         </Link>
         <Link
-          href={"/download/Resume_MochammadNaufalIhzaSyahzada.pdf"}
+          href={"/download/CV_MochammadNaufalIhzaSyahzada.pdf"}
           passHref={true}
           download={true}
         >
