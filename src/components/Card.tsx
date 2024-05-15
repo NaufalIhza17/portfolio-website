@@ -167,7 +167,7 @@ export default function Card({
             <p className="font-light text-sm">
               {contributor?.map((cont, index) => (
                 <span key={index} className="">
-                  {cont} -{" "}
+                  {cont} {index !== contributor.length - 1 && "- "}
                 </span>
               ))}
             </p>

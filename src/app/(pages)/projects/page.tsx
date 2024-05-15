@@ -54,7 +54,7 @@ const projectsData = [
     url: "",
     contributor: ["M Naufal Ihza Syahzada"],
     code: "github.com/NaufalIhza17/Computer_Graphics_FP",
-    imgPath: "",
+    imgPath: "port-one.png",
   },
   {
     title: "Dashboard KPI Website",
@@ -82,7 +82,7 @@ const projectsData = [
       "Christian Kevin Emor",
     ],
     code: "github.com/urdhanaka/imagination-lombok.git",
-    imgPath: "",
+    imgPath: "port-two.png",
   },
   {
     title: "Landing Page Website",
@@ -96,7 +96,7 @@ const projectsData = [
       "Sangsaka Wira",
     ],
     code: "github.com/tigoyoga/cpeks-website",
-    imgPath: "",
+    imgPath: "port-four.png",
   },
   {
     title: "Twitter Clone Website",
@@ -123,7 +123,7 @@ const projectsData = [
     url: "bisaiklan-id-nextjs.vercel.app/",
     contributor: ["M Naufal Ihza Syahzada", "Sangsaka Wira"],
     code: "github.com/NaufalIhza17/bisaiklan.id-nextjs",
-    imgPath: "",
+    imgPath: "port-three.png",
   },
   {
     title: "Landing Page Website",
